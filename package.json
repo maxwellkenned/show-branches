@@ -1,0 +1,25 @@
+{
+  "name": "branchs-vox",
+  "version": "1.0.0",
+  "homepage": "https://github.com/maxwellkenned/branchs-vox",
+  "author": {
+    "name": "Maxwell Kenned",
+    "email": "kenned123@gmail.com",
+    "url": "https://maxwellkenned.com.br"
+  },
+  "description": "Mostrar as branchs dos projetos Vox",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron .",
+    "pack": "electron-builder --dir",
+    "build": "electron-packager . branchs-vox --overwrite --platform=linux --arch=x64 --icon=./assets/images/git.png --prune=true --out=release-builds",
+    "deb64": "electron-installer-debian --src dist/app-linux-x64/ --dest dist/installers/ --arch amd64"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^7.1.7",
+    "electron-installer-debian": "^2.0.1",
+    "electron-packager": "^14.1.1"
+  }
+}
