@@ -1,4 +1,4 @@
-const { Menu, Tray, shell } = require('electron');
+const { app, Menu, Tray, shell } = require('electron');
 const fs = require('fs');
 const { resolve } = require('path');
 
@@ -55,7 +55,7 @@ async function getContextMenu() {
 }
 
 async function createTrayMenu() {
-  appIcon = new Tray(resolve(__dirname, '..', '..', 'resources', 'iconTemplate.png'));
+  appIcon = new Tray(resolve(__dirname, '..', '..', 'resources', 'IconTemplate.png'));
   appIcon.setContextMenu(await getContextMenu());
 
   appIcon.on('atualizar', async () => {

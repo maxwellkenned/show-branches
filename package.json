@@ -1,5 +1,6 @@
 {
   "name": "show-branches",
+  "description": "Mostrar as branchs dos projetos Vox",
   "version": "1.0.0",
   "homepage": "https://github.com/maxwellkenned/show-branches",
   "author": {
@@ -7,16 +8,16 @@
     "email": "kenned123@gmail.com",
     "url": "https://maxwellkenned.com.br"
   },
-  "description": "Mostrar as branchs dos projetos Vox",
   "main": "src/main.js",
   "license": "MIT",
   "scripts": {
     "dev": "electron .",
     "pack": "electron-builder --dir",
     "build": "electron-packager . show-branches --overwrite --platform linux --arch x64 --out dist/",
-    "deb64": "electron-installer-debian --src dist/show-branches-linux-x64/ --dest dist/installers/ --arch amd64"
+    "deb64": "electron-installer-debian --src dist/show-branches-linux-x64/ --dest dist/installers/ --arch amd64 --config build.config.json"
   },
   "dependencies": {
+    "auto-launch": "^5.0.5",
     "chokidar": "^3.3.1"
   },
   "devDependencies": {
