@@ -2,11 +2,9 @@ const { execSync } = require('child_process');
 const { resolve } = require('path');
 const chokidar = require('chokidar');
 
-const config = require('../config/config');
-
 function mapPaths(files) {
   return files.map(file => {
-    const path = config.basePath + file;
+    const path = process.env.BASE_PATH + file;
     let branch = '';
     try {
       branch = execSync(`cd ${path} && git rev-parse --abbrev-ref HEAD`);
@@ -26,7 +24,14 @@ function mapPaths(files) {
     return {
       label: texto,
       sublabel: String(branch).replace(/[\n]/, ''),
-      icon: `${resolve(__dirname, '..', '..', 'resources', 'images', 'branch.png')}`,
+      icon: `${resolve(
+        __dirname,
+        '..',
+        '..',
+        'resources',
+        'images',
+        'branch.png'
+      )}`,
       type: 'normal',
       enabled: false
     };

@@ -1,21 +1,18 @@
 {
-  "name": "show-branches",
-  "productName": "Show Branches",
-  "genericName": "Show Branches",
-  "description": "Monitora as branches dos projetos no diretório especificado",
-  "version": "1.0.0",
-  "section": "utils",
-  "size": 54800,
-  "maintainer": "Maxwell Kenned",
-  "homepage": "https://github.com/maxwellkenned/show-branches",
-  "bin": "show-branches",
   "src": "src",
   "dest": "dist/installers/",
-  "icon": "resources/Icon.png",
-  "categories": [
-    "Utility"
-  ],
-  "lintianOverrides": [
-    "changelog-file-missing-in-native-package"
-  ]
+  "options": {
+    "name": "show-branches",
+    "productName": "Show Branches",
+    "genericName": "Show Branches",
+    "description": "Monitora as branches dos projetos no diretório especificado",
+    "section": "utils",
+    "size": 54800,
+    "maintainer": "Maxwell Kenned",
+    "homepage": "https://github.com/maxwellkenned/show-branches",
+    "bin": "show-branches",
+    "icon": "resources/Icon.png",
+    "categories": ["Utility"],
+    "lintianOverrides": ["changelog-file-missing-in-native-package"]
+  }
 }

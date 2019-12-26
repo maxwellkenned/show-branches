@@ -1,8 +1,9 @@
 {
   "name": "show-branches",
   "description": "Mostrar as branchs dos projetos Vox",
-  "version": "1.0.0",
+  "version": "1.0.10",
   "homepage": "https://github.com/maxwellkenned/show-branches",
+  "repository": "https://github.com/maxwellkenned/show-branches",
   "author": {
     "name": "Maxwell Kenned",
     "email": "kenned123@gmail.com",
@@ -11,18 +12,22 @@
   "main": "src/main.js",
   "license": "MIT",
   "scripts": {
-    "dev": "electron .",
+    "start": "electron .",
     "pack": "electron-builder --dir",
-    "build": "electron-packager . show-branches --overwrite --platform linux --arch x64 --out dist/",
-    "deb64": "electron-installer-debian --src dist/show-branches-linux-x64/ --dest dist/installers/ --arch amd64 --config build.config.json"
+    "build:package": "electron-packager . --overwrite --platform linux --arch x64 --out dist/",
+    "build:deb": "electron-installer-debian --src dist/show-branches-linux-x64/ --dest releases/download/ --arch amd64 --config build.config.json",
+    "dist": "npm run build:package && npm run build:deb",
+    "postinstall": "cp .env.exemple .env"
   },
   "dependencies": {
     "auto-launch": "^5.0.5",
-    "chokidar": "^3.3.1"
+    "chokidar": "^3.3.1",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "electron": "^7.1.7",
     "electron-installer-debian": "^2.0.1",
+    "electron-installer-snap": "^4.1.0",
     "electron-packager": "^14.1.1"
   }
 }
