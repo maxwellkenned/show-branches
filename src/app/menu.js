@@ -38,7 +38,7 @@ async function getContextMenu() {
         __dirname,
         '..',
         '..',
-        'resources',
+        'assets',
         'images',
         'about.png'
       )}`,
@@ -54,7 +54,7 @@ async function getContextMenu() {
         __dirname,
         '..',
         '..',
-        'resources',
+        'assets',
         'images',
         'quit.png'
       )}`,
@@ -68,7 +68,7 @@ async function getContextMenu() {
 
 async function createTrayMenu() {
   appIcon = new Tray(
-    resolve(__dirname, '..', '..', 'resources', 'IconTemplate.png')
+    resolve(__dirname, '..', '..', 'assets', 'IconTemplate.png')
   );
   appIcon.setContextMenu(await getContextMenu());
 

@@ -23,7 +23,7 @@
     "directories": {
       "app": "./",
       "output": "./releases/download",
-      "buildResources": "./resources"
+      "buildResources": "assets"
     },
     "linux": {
       "target": [
@@ -34,13 +34,18 @@
           ]
         }
       ],
-      "icon": "Icon.png",
+      "icon": "assets/icons",
       "category": "Utility",
       "files": [
         "!node_modules/*",
         "!releases/*",
-        "!dist/*"
-      ]
+        "!dist/*",
+        "./assets/*",
+        "./**"
+      ],
+      "desktop": {
+        "Encoding": "UTF-8"
+      }
     }
   },
   "dependencies": {

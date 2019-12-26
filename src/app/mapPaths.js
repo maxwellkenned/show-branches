@@ -28,7 +28,7 @@ function mapPaths(files) {
         __dirname,
         '..',
         '..',
-        'resources',
+        'assets',
         'images',
         'branch.png'
       )}`,
