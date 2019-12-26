@@ -14,10 +14,34 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "build:package": "electron-packager . --overwrite --platform linux --arch x64 --out dist/",
-    "build:deb": "electron-installer-debian --src dist/show-branches-linux-x64/ --dest releases/download/ --arch amd64 --config build.config.json",
-    "dist": "npm run build:package && npm run build:deb",
-    "postinstall": "cp .env.exemple .env"
+    "dist": "electron-builder",
+    "postinstall": "cp .env.exemple .env && electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "show-branches",
+    "productName": "Show branches",
+    "directories": {
+      "app": "./",
+      "output": "./releases/download",
+      "buildResources": "./resources"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "Icon.png",
+      "category": "Utility",
+      "files": [
+        "!node_modules/*",
+        "!releases/*",
+        "!dist/*"
+      ]
+    }
   },
   "dependencies": {
     "auto-launch": "^5.0.5",
@@ -26,8 +50,6 @@
   },
   "devDependencies": {
     "electron": "^7.1.7",
-    "electron-installer-debian": "^2.0.1",
-    "electron-installer-snap": "^4.1.0",
-    "electron-packager": "^14.1.1"
+    "electron-builder": "^21.2.0"
   }
 }
