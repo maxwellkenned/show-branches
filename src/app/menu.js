@@ -18,7 +18,7 @@ const getItensMenu = async _ => {
           fs.existsSync(process.env.BASE_PATH + file + '/.git')
       );
 
-    return (contextMenu = await mapPaths(files));
+    return (contextMenu = await mapPaths(files, appIcon));
   }
 };
 

@@ -1,8 +1,8 @@
 const { execSync } = require('child_process');
 const { resolve } = require('path');
-const chokidar = require('chokidar');
+const fs  = require('fs');
 
-function mapPaths(files) {
+function mapPaths(files, appIcon) {
   return files.map(file => {
     const path = process.env.BASE_PATH + file;
     let branch = '';
@@ -10,14 +10,9 @@ function mapPaths(files) {
       branch = execSync(`cd ${path} && git rev-parse --abbrev-ref HEAD`);
     } catch (e) {}
 
-    chokidar
-      .watch(path + '/.git/HEAD', {
-        interval: 1,
-        persistent: true
-      })
-      .on('change', path => {
-        appIcon.emit('atualizar');
-      });
+    fs.watchFile(path + '/.git/HEAD', (curr, prev) => {
+      appIcon.emit('atualizar');
+    });
 
     const texto = file + ' | ' + String(branch).replace(/[\n]/, '');
 
